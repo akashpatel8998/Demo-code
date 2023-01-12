@@ -35,7 +35,6 @@ const Dashboard = () => {
             dispatch(setUser(response.data.data));
         }).catch(response => {
             setLoader(false);
-            console.log('error =>', response)
         });
     };
 
@@ -43,7 +42,6 @@ const Dashboard = () => {
         getPersonDetail(id).then(response => {
             setUserprofile(response.data);
         }).catch(response => {
-            console.log('error =>', response);            
             setUserprofile(false);
         });
     };
@@ -51,7 +49,7 @@ const Dashboard = () => {
     const deleteUserData = (id) => {
         deletePersonDetail(id).then(response => {
             dispatch(deleteUser(id)); 
-        }).catch(response => console.log('error =>', response));
+        }).catch(error => error);
     }
 
     const handleLogoutUser = () => {        

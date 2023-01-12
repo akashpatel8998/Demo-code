@@ -45,12 +45,12 @@ const EditUser = ({onClose, editUserDetails}) => {
                 updatePersonDetail(payload).then(response => {
                     dispatch(editUser(payload));
                     onClose();
-                }).catch(response => console.log('error =>', response));
+                }).catch(error => error);
             } else {
                 addPersonDetail(payload).then(response => {
                     dispatch(addUser({...payload,id:response?.data?.id}));
                     onClose();
-                }).catch(response => console.log('error =>', response));
+                }).catch(error => error);
             }
         }else{
             // setIserror(true)

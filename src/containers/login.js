@@ -24,10 +24,7 @@ const Login = () => {
             userLogin(email, password).then(response => {
                 setLocalStorage("loginToken", JSON.stringify(response?.data));
                 router('/user-dashboard');
-            }).catch(response => {
-                console.log('error =>', response);
-                setErrorList(response?.response?.data);
-            });
+            }).catch(error => setErrorList(error?.response?.data));
         } else {
             setErrorList(errorList);
         }
